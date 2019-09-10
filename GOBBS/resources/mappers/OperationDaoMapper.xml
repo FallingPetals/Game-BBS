@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OperationDao">
+
+	<insert id="insertOperation" parameterType="com.njust.edu.pojo.Operation">
+		insert into Operation(uid,operation_date,operation_time,ip,operation_type) values(#{uid},#{operation_date},#{operation_time},#{ip},#{operation_type})
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cid">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+	</insert>
+	
+	<select id="queryOperationByCid" resultType="com.njust.edu.pojo.Operation">
+		select * from operation where cid=#{cid}
+	</select>
+	
+	<select id="queryOperationByIp" resultType="com.njust.edu.pojo.Operation">
+		select * from operation where ip=#{ip}
+	</select>
+	
+	<select id="queryOperationByDate" resultType="com.njust.edu.pojo.Operation">
+		select * from operation where operation_date=#{operation_date}
+	</select>
+	
+	<select id="queryOperationAll" resultType="com.njust.edu.pojo.Operation">
+		select * from operation
+	</select>
+
+
+
+</mapper>

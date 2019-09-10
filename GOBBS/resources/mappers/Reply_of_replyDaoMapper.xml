@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="Reply_of_replyDao">
+
+	<insert id="insertRor" parameterType="com.njust.edu.pojo.Reply_of_reply">
+		insert into reply_of_reply(uid,hid,ror_date,ror_time,ror_order,ror_body) values(#{uid},#{hid},#{ror_date},#{ror_time},#{ror_order},#{ror_body})
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="lid">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+	</insert>
+	
+	<update id="updateRorByLid" parameterType="com.njust.edu.pojo.Reply_of_reply">
+		update reply_of_reply set like_num=#{like_num},is_delete=#{is_delete} where lid=#{lid}
+	</update>
+	
+	<delete id="deleteRorByLid">
+		delete from reply_of_reply where lid=#{lid}
+	</delete>
+	
+	<select id="queryRorByLid" resultType="com.njust.edu.pojo.Reply_of_reply">
+		select * from reply_of_reply where lid=#{lid}
+	</select>
+	
+	<select id="queryRorByHid" resultType="com.njust.edu.pojo.Reply_of_reply">
+		select * from reply_of_reply where hid=#{hid}
+	</select>
+	
+	<select id="queryRorAll" resultType="com.njust.edu.pojo.Reply_of_reply">
+		select * from reply_of_reply
+	</select>
+
+
+</mapper>

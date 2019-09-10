@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper:根标签，namespace：命名空间，随便写，一般保证命名空间唯一 -->
+<mapper namespace="UserDao">
+    
+	
+	<insert id="insertUser" parameterType="com.njust.edu.pojo.User">
+		<choose>
+			<when test="phone==null and id!=null">
+			</when>
+			<when test="phone!=null and id==null">
+				insert into user(user_name,password,nickname,email,phone,join_date) values(#{user_name},#{password},#{nickname},#{email},#{phone},#{join_date})
+			</when>
+			<!-- phone和id都没填入就执行这个（数据库中这两个可空，且默认值位NULL） -->
+			<otherwise>
+				insert into user(user_name,password,nickname,email,phone,id,join_date) values(#{user_name},#{password},#{nickname},#{email},#{phone},#{id},#{join_date})
+			</otherwise>
+		</choose>	
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="uid">
+          SELECT LAST_INSERT_ID()
+        </selectKey>	
+	</insert>
+	<!--  
+	<upadate id="updateUserByUid" parameterType="com.njust.edu.pojo.User">
+		update user set password=#{password},nickname=#{nickname},email=#{email},phone=#{phone},id=#{id},join_date=#{join_date},post_num=#{post_num},status=#{status} where uid=#{uid}
+	</update>
+	
+	<update id="updateUserByUserName" parameterType="com.njust.edu.pojo.User">
+		update user set password=#{password},nickname=#{nickname},email=#{email},phone=#{phone},id=#{id},join_date=#{join_date},post_num=#{post_num},status=#{status} where user_name=#{user_name}
+	</update>
+	-->
+	<update id="updateUserByUid" parameterType="com.njust.edu.pojo.User">
+		update user set password=#{password},nickname=#{nickname},email=#{email},phone=#{phone},id=#{id},join_date=#{join_date},post_num=#{post_num},status=#{status} where uid=#{uid}
+	</update>
+	
+	<update id="updateUserByUserName">
+		update user set password=#{password},nickname=#{nickname},email=#{email},phone=#{phone},id=#{id},join_date=#{join_date},post_num=#{post_num},status=#{status} where user_name=#{user_name}
+	</update>
+	
+	<delete id="deleteUserByUid">
+		delete from user where uid=#{uid}
+	</delete>
+	
+	<delete id="deleteUserByUserName">
+		delete from user where user_name=#{user_name}
+	</delete>
+
+	<select id="queryUserByUid" resultType="com.njust.edu.pojo.User">
+		select uid,user_name,password,nickname,email,phone,id,level,point,join_date,post_num,status from user where uid=#{uid}
+	</select>
+	
+	<select id="queryUserByUserName" resultType="com.njust.edu.pojo.User">
+		select uid,user_name,password,nickname,email,phone,id,level,point,join_date,post_num,status from user where user_name=#{user_name}
+	</select>
+	
+	<select id="queryUserAll" resultType="com.njust.edu.pojo.User">
+		select * from user
+	</select>
+
+
+</mapper>
+

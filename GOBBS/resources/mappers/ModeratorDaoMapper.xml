@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper:根标签，namespace：命名空间，随便写，一般保证命名空间唯一 -->
+<mapper namespace="ModeratorDao">
+    <!-- statement，内容：sql语句。id：唯一标识，随便写，在同一个命名空间下保持唯一
+       resultType：sql语句查询结果集的封装类型,tb_user即为数据库中的表
+     -->
+    <!--<select id="queryUserById" resultType="com.zpc.mybatis.pojo.User">-->
+    <!--select * from tb_user where id = #{id}-->
+    <!--</select>-->
+
+	<select id="queryModeratorByUid" resultType="com.njust.edu.pojo.Moderator">
+		select uid,bid,get_date,lose_date from Moderator where uid=#{uid}
+	</select>
+	
+	<select id="queryModeratorByBid" resultType="com.njust.edu.pojo.Moderator">
+		select uid,bid,get_date,lose_date from Moderator where bid=#{bid}
+	</select>
+	
+	<select id="queryModeratorAll" resultType="com.njust.edu.pojo.Moderator">
+        select * from Moderator;
+    </select>
+    
+	<insert id="insertModerator" parameterType="com.njust.edu.pojo.Moderator">
+		insert into Moderator(uid,bid,get_date) values(#{uid},#{bid},#{get_date})
+	</insert>
+
+	<update id="updateModeratorLoseDateByUid" parameterType="com.njust.edu.pojo.Moderator">
+		update Moderator set lose_date=#{lose_date} where uid=#{uid}
+	</update>
+	
+
+	<delete id="deleteModeratorByUid">
+        delete from Moderator where uid=#{uid}
+    </delete>
+
+
+</mapper>
+

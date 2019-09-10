@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SectionDao">
+
+	<insert id="insertSection" parameterType="com.njust.edu.pojo.Section">
+		insert into section(bid,section_name,section_type,headline) values(#{bid},#{section_name},#{section_type},#{headline})
+	</insert>
+	
+	<update id="updateSectionByBid" parameterType="com.njust.edu.pojo.Section">
+		update section set section_name=#{section_name},section_type=#{section_type},headline=#{headline} where bid=#{bid}
+	</update>
+	
+	<update id="updateSectionBySectionName" parameterType="com.njust.edu.pojo.Section">
+		update section set section_type=#{section_type},headline=#{headline} where section_name=#{section_name}
+	</update>
+	
+	<delete id="deleteSectionByBid">
+		delete from section where bid=#{bid}
+	</delete>
+	
+	<delete id="deleteSectionBySectionName">
+		delete from section where section_name=#{section_name}
+	</delete>
+	
+	<select id="querySectionByBid" resultType="com.njust.edu.pojo.Section">
+		select * from section where bid=#{bid}
+	</select>
+	
+	<select id="querySectionBySectionName" resultType="com.njust.edu.pojo.Section">
+		select * from section where section_name=#{section_name}
+	</select>
+
+	<select id="querySectionAll" resultType="com.njust.edu.pojo.Section">
+		select * from section
+	</select>
+
+
+</mapper>

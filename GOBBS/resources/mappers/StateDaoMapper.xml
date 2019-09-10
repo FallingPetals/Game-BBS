@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StateDao">
+
+	<insert id="insertState" parameterType="com.njust.edu.pojo.State">
+		insert into state values(#{uid},#{bid},#{state_type},#{remove_date})
+	</insert>
+	
+	<update id="updateStateByUidBid" parameterType="com.njust.edu.pojo.State">
+		update state set state_type=#{state_type},remove_date=#{remove_date} where uid=#{uid} and bid=#{bid}
+	</update>
+	
+	<delete id="deleteStateByUidBid" parameterType="com.njust.edu.pojo.State">
+		delete from state where uid=#{uid} and bid=#{bid}
+	</delete>
+	
+	<select id="queryStateByUid" resultType="com.njust.edu.pojo.State">
+		select * from state where uid=#{uid}
+	</select>
+	
+	<select id="queryStateByBid" resultType="com.njust.edu.pojo.State">
+		select * from state where bid=#{bid}
+	</select>
+	
+	<select id="queryStateAll" resultType="com.njust.edu.pojo.State">
+		select * from state
+	</select>
+
+
+
+</mapper>

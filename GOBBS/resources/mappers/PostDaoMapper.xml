@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PostDao">
+
+	<insert id="insertPost" parameterType="com.njust.edu.pojo.Post">
+		insert into post(uid,bid,post_date,post_time,title,body) values(#{uid},#{bid},#{post_date},#{post_time},#{title},#{body})
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="tid">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+	</insert>
+	
+	<update id="updatePostByTid" parameterType="com.njust.edu.pojo.Post">
+		update post set like_num=#{like_num},collect_num=#{collect_num},reply_num=#{reply_num},title=#{title},body=#{body},is_delete=#{is_delete},have_reply=#{have_reply} where tid=#{tid}
+	</update>
+	
+	<delete id="deletePostByTid">
+		delete from post where tid=#{tid}
+	</delete>
+	
+	<select id="queryPostByTid" resultType="com.njust.edu.pojo.Post">
+		select uid,tid,bid,post_date,post_time,like_num,collect_num,reply_num,title,body,is_delete from post where tid=#{tid}
+	</select>
+	
+	<select id="queryPostByUid" resultType="com.njust.edu.pojo.Post">
+		select uid,tid,bid,post_date,post_time,like_num,collect_num,reply_num,title,body,is_delete from post where uid=#{uid}
+	</select>
+	
+	<select id="queryPostByBid" resultType="com.njust.edu.pojo.Post">
+		select uid,tid,bid,post_date,post_time,like_num,collect_num,reply_num,title,body,is_delete from post where bid=#{bid}
+	</select>
+	
+	<select id="queryPostAll" resultType="com.njust.edu.pojo.Post">
+		select * from post
+	</select>
+	
+</mapper>

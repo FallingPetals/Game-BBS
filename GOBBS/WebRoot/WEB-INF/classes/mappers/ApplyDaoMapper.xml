@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ApplyDao">
+
+	<insert id="insertApply" parameterType="com.njust.edu.pojo.Apply">
+		insert into apply(uid,bid,apply_date,apply_time,reason,working_experience) values(#{uid},#{bid},#{apply_date},#{apply_time},#{reason},#{working_experience})
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="sid">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+	</insert>
+	
+	<delete id="deleteApplyBySid">
+		delete from apply where sid=#{sid}
+	</delete>
+	
+	<select id="queryApplyBySid" resultType="com.njust.edu.pojo.Apply">
+		select * from apply where sid=#{sid}
+	</select>
+	
+	<select id="queryApplyByBid" resultType="com.njust.edu.pojo.Apply">
+		select * from apply where bid=#{bid}
+	</select>
+	
+	<select id="queryApplyAll" resultType="com.njust.edu.pojo.Apply">
+		select * from apply
+	</select>
+
+
+</mapper>
+

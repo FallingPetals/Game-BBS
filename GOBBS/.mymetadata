@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="GOBBS"
+  id="myeclipse.1567904747653"
+  context-root="/GOBBS"
+  j2ee-spec="6.0"
+  archive="GOBBS.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
