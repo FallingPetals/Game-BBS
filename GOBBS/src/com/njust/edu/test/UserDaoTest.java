@@ -20,21 +20,21 @@ public class UserDaoTest {
 		UserDaoTest userDaoTest=new UserDaoTest();
 		// mybatis-config.xml
         String resource = "mybatis-config.xml";
-        // ¶ÁÈ¡ÅäÖÃÎÄ¼þ
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         InputStream is = Resources.getResourceAsStream(resource);
-        // ¹¹½¨SqlSessionFactory
+        // SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
-        // »ñÈ¡sqlSession
+        // ï¿½ï¿½È¡sqlSession
         userDaoTest.sqlSession = sqlSessionFactory.openSession();
         userDaoTest.userDao = new UserDaoImpl(userDaoTest.sqlSession);
         
         //User user=userDaoTest.userDao.queryUserByUid(1);
         //System.out.println(user);
-        //User user=new User(1,"´÷ð©Ìì","12345","dht","2404612773@qq.com","18767731268",null,9,9,"2019-9-8",0,0);
+        User user=new User(1,"ffkamisama","134679","æ£®å“¥çˆ¸çˆ¸","2404612773@qq.com","18767731268","510504199906060311",9,9,"2019-9-8",0,0);
         //userDaoTest.userDao.updateUserByUserName(user);
-        //userDaoTest.userDao.insertUser(user);
+        userDaoTest.userDao.insertUser(user);
         //System.out.println(user.getUid());
-        userDaoTest.userDao.deleteUserByUserName("»ÆÎÄ¶«");
+       // userDaoTest.userDao.deleteUserByUserName("ï¿½ï¿½ï¿½Ä¶ï¿½");
         
         List<User> userList=userDaoTest.userDao.queryUserAll();
         for(User user2 : userList)

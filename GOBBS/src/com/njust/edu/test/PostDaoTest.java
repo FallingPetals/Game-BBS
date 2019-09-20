@@ -25,23 +25,25 @@ public class PostDaoTest {
 		PostDaoTest postDaoTest=new PostDaoTest();
 		// mybatis-config.xml
         String resource = "mybatis-config.xml";
-        // ¶ÁÈ¡ÅäÖÃÎÄ¼þ
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         InputStream is = Resources.getResourceAsStream(resource);
-        // ¹¹½¨SqlSessionFactory
+        // ï¿½ï¿½ï¿½ï¿½SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
-        // »ñÈ¡sqlSession
+        // ï¿½ï¿½È¡sqlSession
         postDaoTest.sqlSession = sqlSessionFactory.openSession();
         postDaoTest.postDao = new PostDaoImpl(postDaoTest.sqlSession);
         String dateNow=DateTime.getDate();
         String timeNow=DateTime.getTime();
-        //Post post=new Post(1,2,1,dateNow,timeNow,0,0,0,"ÃÈÐÂÀ´±¨µÀÀ±!!!","´óÀÐÃÇºÃ£¡ÎÒÊÇÐÂÀ´¸ñÀï·Ò£¨Ò¤×Ó£©µÄÃÈÐÂÖ¸»Ó¹Ù£¨¸ÎµÛÍº×Ó£©£¬Çë¶àÖ¸½Ì£¡",0);
+        //Post post=new Post(1,2,1,dateNow,timeNow,0,0,0,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!!","ï¿½ï¿½ï¿½ï¿½ï¿½ÇºÃ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½Ò¤ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½Ó¹Ù£ï¿½ï¿½Îµï¿½Íºï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½Ì£ï¿½",0);
         //postDaoTest.postDao.updatePostByTid(post);
         //postDaoTest.postDao.deletePostByTid(4);
         //Post post=postDaoTest.postDao.queryPostByTid(2);
         //System.out.println(post);
         //postDaoTest.postDao.insertPost(post);
         //System.out.println(post.getTid());
-		List<Post> postList=postDaoTest.postDao.queryPostAll();
+        String str = '%'+"æ£®å“¥"+'%';
+		//List<Post> postList=postDaoTest.postDao.queryPostAll();
+		List<Post> postList=postDaoTest.postDao.searchPost(str);
 		for(Post post2 : postList)
 		{
 			System.out.println(post2);

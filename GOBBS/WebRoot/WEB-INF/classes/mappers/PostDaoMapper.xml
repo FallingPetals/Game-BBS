@@ -35,4 +35,9 @@
 		select * from post
 	</select>
 	
+	<select id="searchPost" resultType="com.njust.edu.pojo.Post">
+		select * from post where title LIKE #{str}
+	</select>
+	
+	
 </mapper>

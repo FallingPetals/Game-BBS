@@ -15,7 +15,7 @@ public class PostDaoImpl implements PostDao{
 		this.sqlSession=sqlSession;
 	}
 	
-	public void insertPost(Post post)//postÔÚ²åÈëºó£¬Æätid»á±»¸ü¸Ä³É±»¸³ÓèµÄtid
+	public void insertPost(Post post)//postï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tidï¿½á±»ï¿½ï¿½Ä³É±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tid
 	{
 		this.sqlSession.insert("PostDao.insertPost",post);
 	}
@@ -35,12 +35,12 @@ public class PostDaoImpl implements PostDao{
 		return this.sqlSession.selectOne("PostDao.queryPostByTid",tid);
 	}
 	
-	public List<Post> queryPostByUid(int uid)//²éÑ¯Ä³¸öÓÃ»§·¢µÄËùÓĞÌû×Ó
+	public List<Post> queryPostByUid(int uid)//ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		return this.sqlSession.selectList("PostDao.queryPostByUid",uid);
 	}
 	
-	public List<Post> queryPostByBid(int bid)//²éÑ¯Ä³¸ö°æ¿éµÄËùÓĞÌû×Ó
+	public List<Post> queryPostByBid(int bid)//ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		return this.sqlSession.selectList("PostDao.queryPostByBid",bid);
 	}
@@ -49,5 +49,11 @@ public class PostDaoImpl implements PostDao{
 	{
 		return this.sqlSession.selectList("PostDao.queryPostAll");
 	}
+	
+	public List<Post> searchPost(String str)//æ ¹æ®å…³é”®å­—æœç´¢
+	{
+		return this.sqlSession.selectList("PostDao.searchPost",str);
+	}
+
 
 }

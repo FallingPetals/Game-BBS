@@ -6,18 +6,20 @@ import java.util.List;
 
 public interface PostDao {
 	
-	public void insertPost(Post post);//postÔÚ²åÈëºó£¬Æätid»á±»¸ü¸Ä³É±»¸³ÓèµÄtid
+	public void insertPost(Post post);//postï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tidï¿½á±»ï¿½ï¿½Ä³É±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tid
 	
-	public void updatePostByTid(Post post);//Ö»ÄÜ¸üĞÂlike_num,collect_num,reply_num,title,body,is_delete,have_reply 
+	public void updatePostByTid(Post post);//Ö»ï¿½Ü¸ï¿½ï¿½ï¿½like_num,collect_num,reply_num,title,body,is_delete,have_reply 
 	
 	public void deletePostByTid(int tid);
 	
 	public Post queryPostByTid(int tid);
 	
-	public List<Post> queryPostByUid(int uid);//²éÑ¯Ä³¸öÓÃ»§·¢µÄËùÓĞÌû×Ó
+	public List<Post> queryPostByUid(int uid);//ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	public List<Post> queryPostByBid(int bid);//²éÑ¯Ä³¸ö°æ¿éµÄËùÓĞÌû×Ó
+	public List<Post> queryPostByBid(int bid);//ï¿½ï¿½Ñ¯Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	public List<Post> queryPostAll();//²éÑ¯ËùÓĞÌû×Ó
+	public List<Post> queryPostAll();//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	
+	public List<Post> searchPost(String str);//æ ¹æ®å…³é”®å­—æœç´¢
 
 }
