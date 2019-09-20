@@ -48,7 +48,7 @@ public class User implements Serializable{
 	{
 		this.user_name=user_name;
 	}
-	public String getUser_name(String user_name)
+	public String getUser_name()
 	{
 		return user_name;
 	}

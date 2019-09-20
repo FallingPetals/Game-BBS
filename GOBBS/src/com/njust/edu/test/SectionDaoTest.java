@@ -25,23 +25,24 @@ public class SectionDaoTest {
 		SectionDaoTest sectionDaoTest=new SectionDaoTest();
 		// mybatis-config.xml
         String resource = "mybatis-config.xml";
-        // ¶ÁÈ¡ÅäÖÃÎÄ¼þ
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         InputStream is = Resources.getResourceAsStream(resource);
-        // ¹¹½¨SqlSessionFactory
+        // ï¿½ï¿½ï¿½ï¿½SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
-        // »ñÈ¡sqlSession
+        // ï¿½ï¿½È¡sqlSession
         sectionDaoTest.sqlSession = sqlSessionFactory.openSession();
         sectionDaoTest.sectionDao = new SectionDaoImpl(sectionDaoTest.sqlSession);
         String dateNow=DateTime.getDate();
         String timeNow=DateTime.getTime();
-        Section section=new Section(5,"×îÖÕ»ÃÏë14",0,"»¶Ó­À´µ½×îÖÕ»ÃÏë14°æ¿é£¡");
-        sectionDaoTest.sectionDao.updateSectionBySectionName(section);
-        //sectionDaoTest.sectionDao.deleteSectionBySectionName("×îÖÕ»ÃÏë14");
+        //Section section=new Section(5,"ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½14",0,"ï¿½ï¿½Ó­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½14ï¿½ï¿½é£¡");
+        //sectionDaoTest.sectionDao.updateSectionBySectionName(section);
+        //sectionDaoTest.sectionDao.deleteSectionBySectionName("ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½14");
         List<Section> sectionList = sectionDaoTest.sectionDao.querySectionAll();
-        for(Section section2 : sectionList)
+        /*for(Section section2 : sectionList)
         {
         	System.out.println(section2);
         }
+        */
         sectionDaoTest.sqlSession.commit();
 	}
 

@@ -2,14 +2,14 @@ package com.njust.edu.tool;
 
 public class PasswordJudge {
 	
-	public static int Judge(String key)//0±íÊ¾ÕýÈ·£»1±íÊ¾³¤¶È´íÎó,³¤¶È·¶Î§Îª8~20Î»£»2±íÊ¾¸ñÊ½´íÎó£¬º¬ÓÐ³ýÊý×ÖºÍ×ÖÄ¸ÒÔÍâµÄ×Ö·û£»3±íÊ¾¸ñÊ½´íÎó£¬Î´º¬ÓÐ×ÖÄ¸»òÕßÊý×Ö
+	public static int Judge(String key)//0è¡¨ç¤ºæ­£ç¡®ï¼›1è¡¨ç¤ºé•¿åº¦é”™è¯¯,é•¿åº¦èŒƒå›´ä¸º8~20ä½ï¼›2è¡¨ç¤ºæ ¼å¼é”™è¯¯ï¼Œå«æœ‰é™¤æ•°å­—å’Œå­—æ¯ä»¥å¤–çš„å­—ç¬¦ï¼›3è¡¨ç¤ºæ ¼å¼é”™è¯¯ï¼Œæœªå«æœ‰å­—æ¯æˆ–è€…æ•°å­—
 	{
-		if(key.length()>=8&&key.length()<=20)//ÅÐ¶Ï³¤¶ÈÊÇ·ñ·ûºÏÒªÇó 
+		if(key.length()>=8&&key.length()<=20)//åˆ¤æ–­é•¿åº¦æ˜¯å¦ç¬¦åˆè¦æ±‚ 
 		{
-			int count1=0;//Êý×Ö 
-			int count2=0;//×ÖÄ¸ 
-			int count3=0;//ÆäËû×Ö·û
-			for(int j=0;j<key.length();j++)//ÅÐ¶ÏÃ¿Ò»Î»µÄÃÜÂë 
+			int count1=0;//æ•°å­— 
+			int count2=0;//å­—æ¯ 
+			int count3=0;//å…¶ä»–å­—ç¬¦
+			for(int j=0;j<key.length();j++)//åˆ¤æ–­æ¯ä¸€ä½çš„å¯†ç  
 			{
 				if(key.charAt(j)>=48&&key.charAt(j)<=57)
 					count1=1;

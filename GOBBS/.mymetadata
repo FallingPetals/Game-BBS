@@ -2,7 +2,7 @@
 <project-module
   type="WEB"
   name="GOBBS"
-  id="myeclipse.1567904747653"
+  id="myeclipse.1566984132106"
   context-root="/GOBBS"
   j2ee-spec="6.0"
   archive="GOBBS.war">
